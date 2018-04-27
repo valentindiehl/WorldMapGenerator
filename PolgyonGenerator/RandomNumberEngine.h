@@ -1,14 +1,18 @@
 #pragma once
+#include <random>
+
 class RandomNumberEngine
 {
 public:
-
+	void generatePointCloudMap( int pointCount);
 	int generateRandomNumber();
-	Coordinate generateRandomCoordinate();
+	struct Coordinate generateRandomCoordinate();
 	RandomNumberEngine( int width );
 	~RandomNumberEngine();
 private:
-	std::random_device generator;
+	int width;
+	int pointCount;
+	std::mt19937 generator;
 	std::uniform_int_distribution<int> distribution;
 };
 
